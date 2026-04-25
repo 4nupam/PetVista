@@ -1,5 +1,6 @@
 import usePetStore from "../Zustand/usePetStore";
 import PetCard from "./Card";
+import Filter from "../Hooks/PetFilters";
 
 const PetGallery = () => {
   const { data, loading, error } = usePetStore();
@@ -10,8 +11,8 @@ const PetGallery = () => {
   return (
     <div className="pet-container">
       <div className="pet-grid">
-        {data?.map((pet, index) => (
-          <PetCard key={index} pet={pet} />
+        {data?.map((pets) => (
+          <PetCard key={pets.id} pets={pets} />
         ))}
       </div>
     </div>
